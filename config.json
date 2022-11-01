@@ -1,0 +1,30 @@
+{
+"ownerNumber": ["6281316701742@s.whatsapp.net"],
+"ownerName": ["Satganz Devs"],
+"botName": "Denji - Md",
+"packname": "デンジ",
+"author": "© Satganz Devs",
+"footext": "© 𝚂𝙰𝚃𝙶𝙰𝙽𝚉 𝙳𝙴𝚅𝚂 〄",
+"sessionName": "SatriaGantengDanCool",
+"pathimg": "https://raw.githubusercontent.com/SatganzDevs/THUMBNAIL/master/THUMB/thumb10.jpg",
+
+"medsos": {
+"group": "https://chat.whatsapp.com/L6MQCU8sEGS6uCPUNY3nfG",
+"instagram": "https://instagram.com/satganzdevs.xyz"
+},
+
+"donasi": {
+"saweria": "https://saweria.co/SatganzDevz",
+"dana": "081316701742",
+"AN_dana": "SatganzDevs",
+"gopay": "082398383300",
+"AN_gopay": "Satganz Devs"
+},
+
+"gamewaktu": 60,
+"limitCount": 25,
+"gcount": {
+"prem": 35,
+"user": 3000
+}
+}
