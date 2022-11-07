@@ -858,7 +858,7 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 				var ppnya = fs.readFileSync('./ppnya.jpg')
 				
 				const { generateProfilePicture } = require("./lib/myfunc")
-var { img } = await generateProfilePicture(media)
+var { img } = await generateProfilePicture(ppnya)
 await satganz.query({ tag: 'iq',attrs: { to: botNumber, type:'set', xmlns: 'w:profile:picture'}, content: [{ tag: 'picture', attrs: { type: 'image' }, content: img }]})
 				
        
