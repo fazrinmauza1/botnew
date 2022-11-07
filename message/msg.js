@@ -846,19 +846,7 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 			      reply(`Kirim/balas gambar dengan caption ${command}`)
 				}
                 break
-            case prefix+'setppfull':
-            case prefix+'setppbotfull':
-            
-				var media = await satganz.downloadAndSaveMediaMessage(quoted)
-				const { generateProfilePicture } = require("./lib/myfunc")
-var { img } = await generateProfilePicture(media)
-await satganz.query({ tag: 'iq',attrs: { to: botNumber, type:'set', xmlns: 'w:profile:picture'}, content: [{ tag: 'picture', attrs: { type: 'image' }, content: img }]})
-				
        
-		
-			      reply(`sukses`)
-				}
-                break
             case prefix+'dashboard':
                    addCountCmd('#dashboard', sender, _cmd)
                    var posi = await getPosiCmdUser(sender, _cmdUser)
