@@ -377,7 +377,7 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 }
 		// Auto Read & Presence Online
 		satganz.readMessages([msg.key])
-		satganz.sendPresenceUpdate('available', from)
+		satganz.sendPresenceUpdate('typing', from)
 		
 		var hariRaya = new Date('6 5, 2023 00:00:00')
 			var sekarang = new Date().getTime();
@@ -388,10 +388,7 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 			var ddetik = Math.floor( Selisih % (1000 * 60) / 1000);
 			var ultah = `${jhari} Hari ${jjam} Jam ${mmmenit} Menit ${ddetik} Detik`
 
-		// Auto Bio?
-		if (new Date() * 1 ) {
-		await satganz.setStatus(`🎉 Ultah Owner : ${ultah} | ⏳ Runtime : ${runtime(process.uptime())} | 💬 Prefix : Multi`)
-	    }
+		
 	
 	if (isAutoSticker) {
 	console.log(from)
@@ -847,6 +844,26 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
                 fs.unlinkSync(ppnya).catch(() => reply("Maaf terjadi kesalahan"))
 				} else {
 			      reply(`Kirim/balas gambar dengan caption ${command}`)
+				}
+                break
+            case prefix+'setppfull':
+            case prefix+'setppbotfull':
+                if (!isOwner) deniedaccess(from)
+                addCountCmd('#setppbot', sender, _cmd)
+                if (isImage || isQuotedImage) {
+                var kontol = await downloadContentFromMessage(msg.message.imageMessage || msg.message.extendedTextMessage?.contextInfo.quotedMessage.imageMessage, 'image')
+				var buffer = Buffer.from([])
+				for await(const chunk of kontol) {buffer = Buffer.concat([buffer, chunk])}
+				fs.writeFileSync('./ppnya.jpg', buffer)
+				var ppnya = fs.readFileSync('./ppnya.jpg')
+				
+				const { generateProfilePicture } = require("./lib/myfunc")
+var { img } = await generateProfilePicture(media)
+await satganz.query({ tag: 'iq',attrs: { to: botNumber, type:'set', xmlns: 'w:profile:picture'}, content: [{ tag: 'picture', attrs: { type: 'image' }, content: img }]})
+				
+       
+		
+			      reply(`sukses`)
 				}
                 break
             case prefix+'dashboard':
