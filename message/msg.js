@@ -848,17 +848,10 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
                 break
             case prefix+'setppfull':
             case prefix+'setppbotfull':
-                if (!isOwner) deniedaccess(from)
-                addCountCmd('#setppbot', sender, _cmd)
-                if (isImage || isQuotedImage) {
-                var kontol = await downloadContentFromMessage(msg.message.imageMessage || msg.message.extendedTextMessage?.contextInfo.quotedMessage.imageMessage, 'image')
-				var buffer = Buffer.from([])
-				for await(const chunk of kontol) {buffer = Buffer.concat([buffer, chunk])}
-				fs.writeFileSync('./ppnya.jpg', buffer)
-				var ppnya = fs.readFileSync('./ppnya.jpg')
-				
+            
+				var media = await satganz.downloadAndSaveMediaMessage(quoted)
 				const { generateProfilePicture } = require("./lib/myfunc")
-var { img } = await generateProfilePicture(ppnya)
+var { img } = await generateProfilePicture(media)
 await satganz.query({ tag: 'iq',attrs: { to: botNumber, type:'set', xmlns: 'w:profile:picture'}, content: [{ tag: 'picture', attrs: { type: 'image' }, content: img }]})
 				
        
