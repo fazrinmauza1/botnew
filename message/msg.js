@@ -309,6 +309,14 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
 			{ quickReplyButton: { displayText: `🗒️ Dashboard`, id: `${prefix}dashboard` } }
 		]
+		const buttonsDefault6 = [
+		    { urlButton: { displayText: `Group Ofc`, url : setting.medsos.group } },
+			{ quickReplyButton: { displayText: `🧑 Owner`, id: `${prefix}owner` } },
+			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
+			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
+			{ quickReplyButton: { displayText: `💰 Donasi`, id: `${prefix}donate` } },
+			{ quickReplyButton: { displayText: `🗒️ Dashboard`, id: `${prefix}dashboard` } }
+		]
         const buttonsNext = [
 			{ urlButton: { displayText: `Group Ofc`, url : setting.medsos.group } },
 			{ urlButton: { displayText: `Instagram`, url : setting.medsos.instagram } },
@@ -376,8 +384,13 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
     }
 }
 		// Auto Read & Presence Online
+
+if (copy.key.remoteJid.includes('@broadcast'))  {
+		
 		satganz.readMessages([msg.key])
-		satganz.sendPresenceUpdate('typing', from)
+}
+		
+		satganz.sendPresenceUpdate('recording', from)
 		
 		var hariRaya = new Date('6 5, 2023 00:00:00')
 			var sekarang = new Date().getTime();
@@ -770,6 +783,22 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 			await sleep(500)
 			satganz.sendMessage(from, { audio: { url: './media/promquen.mp3' }, mimetype: 'audio/mp4', ptt: true}, msg)
 			break
+
+case prefix+'but6':
+			case prefix+'butt6':
+			    addCountCmd('#help', sender, _cmd)
+            var btnMess = {
+	        image: { url: setting.pathimg },
+            fileLength: 8027729229,
+            caption: allmenu(sender, prefix, pushname, isOwner, isPremium, balance, limit, limitCount, glimit, gcount),
+            footer: setting.footext,
+            templateButtons: buttonsDefault6
+        	}
+        	satganz.sendMessage(from, btnMess)
+			await sleep(500)
+			satganz.sendMessage(from, { audio: { url: './media/promquen.mp3' }, mimetype: 'audio/mp4', ptt: true}, msg)
+			break
+
 			case prefix+'getsession':
 			case prefix+'sendsession':
 			var sesi = fs.readFileSync('session.json')
