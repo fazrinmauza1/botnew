@@ -385,12 +385,11 @@ module.exports = async(satganz, msg, m, setting, store, welcome) => {
 }
 		// Auto Read & Presence Online
 
-if (copy.key.remoteJid.includes('@broadcast'))  {
-		
+
 		satganz.readMessages([msg.key])
-}
+
 		
-		satganz.sendPresenceUpdate('recording', from)
+		satganz.sendPresenceUpdate('ttyping', from)
 		
 		var hariRaya = new Date('6 5, 2023 00:00:00')
 			var sekarang = new Date().getTime();
