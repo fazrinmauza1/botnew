@@ -101,9 +101,9 @@ const connectToWhatsApp = async () => {
 	nocache('./lib/myfunc', module => console.log(chalk.greenBright('[ SATGANZDEVS ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	nocache('./message/msg', module => console.log(chalk.greenBright('[ SATGANZDEVS ]  ') + time + chalk.cyanBright(` "${module}" Telah diupdate!`)))
 	
-	satganz.multi = true
+	satganz.multi = false 
 	satganz.nopref = false
-	satganz.prefa = ''
+	satganz.prefa = '.'
 	satganz.ev.on('messages.upsert', async m => {
 		if (!m.messages) return;
 		var msg = m.messages[0]
